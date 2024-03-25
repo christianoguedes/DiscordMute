@@ -1,0 +1,69 @@
+{
+    "manifest_version": 3,
+    "name": "DiscordMic",
+    "version": "0.0.1",
+    "host_permissions": ["*://discord.com/*"],
+    "permissions": ["tabs"],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "commands": {
+        "toogle_mic_key": {
+            "suggested_key": {
+                "default": "Ctrl+Shift+1",
+                "mac": "Command+Shift+1"
+            },
+            "description": "Toggle microphone",
+            "global": true
+        },
+        "toogle_sound_key": {
+            "suggested_key": {
+                "default": "Ctrl+Shift+2",
+                "mac": "Command+Shift+2"
+            },
+            "description": "Toggle sound",
+            "global": true
+        },
+        "active_mic_key": {
+            "suggested_key": {
+                "default": "Ctrl+Shift+3",
+                "mac": "Command+Shift+3"
+            },
+            "description": "Turn on microphone",
+            "global": true
+        },
+        "deactivate_mic_key": {
+            "suggested_key": {
+                "default": "Ctrl+Shift+4",
+                "mac": "Command+Shift+4"
+            },
+            "description": "Turn off microphone",
+            "global": true
+        },
+        "active_sound_key": {
+            "description": "Turn on sound",
+            "global": true
+        },
+        "deactivate_sound_key": {
+            "description": "Turn off sound",
+            "global": true
+        },
+        "disconnect_key": {
+            "description": "Disconnect",
+            "global": true
+        }
+    },
+    "content_scripts": [
+        {
+            "matches": ["*://discord.com/*"],
+            "js": ["content.js"]
+        }
+    ],
+    "action": {
+        "default_icon": {
+          "16": "images/logo_16.png",
+          "48": "images/logo_48.png",
+          "128": "images/logo.png"
+        }
+      }
+}
